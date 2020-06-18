@@ -10,3 +10,5 @@ each dice has. It randomly generates an amount values equal to the amount specif
 die you use (Ex: Recognizes if you're rolling a 6 sided-die, or rolling for character stats in a tabletop RPG)
 * Comments for roll(Gives user sympathy on bad rolls, Congratulations on good rolls, etc.)
   * Have multiple comments for each outcome, and randomly sends one to the user
+* Allow a third input that adds or subtracts a constant from the total
+* Display messages for incorrect input/usage
