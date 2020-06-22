@@ -5,7 +5,9 @@ function goodComments() {
         "Ayy that's a good roll.",
         "Someone get the camera",
         "MLG Pro.",
-        "RNG Jesus smiles upon you!"
+        "RNG Jesus smiles upon you!",
+        "Dab Dab",
+        "YEET"
     ];
 
     return positiveComments;
@@ -15,8 +17,8 @@ function goodComments() {
 function avgComments() {
     const averageComments = [
         "Could be worse I guess.",
-        "Average.",
-        "I mean, at least its not bad."
+        "I mean you ain't failing",
+        "Welp it certainly ain't bad."
     ];
 
     return averageComments;
@@ -31,7 +33,8 @@ function badComments() {
         "That's not cash money.",
         "Gonna need some ointment for that burn.",
         "Pressing F to pay respects.",
-        "Mission failed, we'll get 'em next time."
+        "Mission failed, we'll get 'em next time.",
+        "REEEEEEEEEEEEEEE"
     ];
 
     return badComments;
@@ -41,9 +44,7 @@ function badComments() {
 function getComment(total, maxDie, diceAmount) {
     // Comment Lists:
     const positiveComments = goodComments();
-    
     const okComments = avgComments();
-    
     const negativeComments = badComments();
 
     // Function starts here:
@@ -55,16 +56,17 @@ function getComment(total, maxDie, diceAmount) {
     const status = calculateAvg(total, maxDie, diceAmount);
 
     if(status === "good") {
-        index = Math.floor(Math.random() * (positiveComments.length - 1));
+        index = Math.floor(Math.random() * (positiveComments.length));
         comment = positiveComments[index];
     }
 
     else if(status === "bad") {
-        index = Math.floor(Math.random() * (negativeComments.length - 1));
+        index = Math.floor(Math.random() * (negativeComments.length));
         comment = negativeComments[index];
     }
 
     else {
+        index = Math.floor(Math.random() * (okComments.length));
         comment = okComments[index];
     }
 
