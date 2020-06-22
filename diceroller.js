@@ -1,4 +1,4 @@
-// Reference for other functions
+// Reference for adding comments to Dice Message
 const printComment = require('./comments.js');
 
 function diceTotal(diceAmount, maxDie, bonus) {
@@ -13,7 +13,7 @@ function diceTotal(diceAmount, maxDie, bonus) {
     }
 
     total = parseInt(rollTotal) + parseInt(bonus);
-    let rollMessage = printRolls(diceRolls, total, rollTotal, bonus);
+    let rollMessage = printRolls(diceRolls, total, rollTotal, bonus, maxDie);
     let commentMessage = '\n' + printComment(rollTotal, maxDie, diceAmount);
 
     const diceMessage = rollMessage + commentMessage;
@@ -27,8 +27,8 @@ function diceRoll(maxDie) {
 }
 
 // Method for creating message for dice roll
-function printRolls(diceRolls, total, rollTotal, bonus,) {
-    let message = '';
+function printRolls(diceRolls, total, rollTotal, bonus, maxDie) {
+    let message = "You rolled " + diceRolls.length + "d" + maxDie + ":\n";
     
     for(let i = 0; i < diceRolls.length; i++) {
         message += diceRolls[i] + " + ";
@@ -41,7 +41,7 @@ function printRolls(diceRolls, total, rollTotal, bonus,) {
     message += "= " + rollTotal;
     
     if(bonus !== 0) {
-        message +="\nYou have a modifier of " + bonus + ", so the actual total = " + total;   
+        message +="\nWith modifier: " + rollTotal + " + " + bonus + " = " + total;   
     }
 
     return message;

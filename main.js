@@ -1,6 +1,5 @@
 // Reference other functions from files
 const diceRoller = require('./diceroller.js');
-// const printComment = require('./comments.js');
 
 // Get Input from user
 const diceAmount = getInput(0);
@@ -8,8 +7,18 @@ const diceSides = getInput(1);
 const bonus = getInput(2);
 let diceMessage = "";
 
+// Handle for input help
+if(!diceSides && diceAmount === "format") {
+    diceMessage = "node main.js [number of dice] [sides of die] [modifier]";
+}
+
+else if(diceAmount === undefined) {
+    diceMessage = "... You didn't input anything...\n" +
+    "Type 'node main.js format' to see the proper way to input .";
+}
+
 // Handle for single input
-if(!diceSides){
+else if(!diceSides && !isNaN(diceAmount)){
     diceMessage = "You need to enter at least 2 numbers my guy.";
 }
 
